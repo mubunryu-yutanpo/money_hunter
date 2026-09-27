@@ -72,32 +72,60 @@ export default function Index() {
   }
 
   return (
+    // <View style={styles.container}>
+    //   <Text style={styles.eyebrow}>SQLite persistence test</Text>
+    //   <Text style={styles.title}>Player Gold</Text>
+    //   <Text style={styles.gold}>{gold === null ? "Loading..." : `${gold} G`}</Text>
+
+    //   <Pressable
+    //     accessibilityRole="button"
+    //     accessibilityLabel="Add 100 gold"
+    //     disabled={gold === null || isSaving}
+    //     onPress={handleAddGold}
+    //     style={({ pressed }) => [
+    //       styles.button,
+    //       pressed && styles.buttonPressed,
+    //       (gold === null || isSaving) && styles.buttonDisabled,
+    //     ]}
+    //   >
+    //     <Text style={styles.buttonText}>
+    //       {isSaving ? "Saving..." : "+100 G"}
+    //     </Text>
+    //   </Pressable>
+
+    //   <Text style={styles.hint}>
+    //     Add gold, restart the app, and confirm that the value remains.
+    //   </Text>
+
+    //   {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
+    // </View>
+
     <View style={styles.container}>
-      <Text style={styles.eyebrow}>SQLite persistence test</Text>
-      <Text style={styles.title}>Player Gold</Text>
-      <Text style={styles.gold}>{gold === null ? "Loading..." : `${gold} G`}</Text>
+      <Text style={styles.heading1}>Money Hunter</Text>
 
       <Pressable
         accessibilityRole="button"
-        accessibilityLabel="Add 100 gold"
-        disabled={gold === null || isSaving}
-        onPress={handleAddGold}
+        accessibilityLabel="マネーハンターをはじめる"
+        // onPress={moveMap}
         style={({ pressed }) => [
-          styles.button,
+          styles.startButton,
           pressed && styles.buttonPressed,
-          (gold === null || isSaving) && styles.buttonDisabled,
         ]}
       >
-        <Text style={styles.buttonText}>
-          {isSaving ? "Saving..." : "+100 G"}
-        </Text>
+        <Text style={styles.startButtonText}>はじめる</Text>
       </Pressable>
 
-      <Text style={styles.hint}>
-        Add gold, restart the app, and confirm that the value remains.
-      </Text>
-
-      {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel="設定"
+        // onPress={setting}
+        style={({ pressed }) => [
+          styles.settingButton,
+          pressed && styles.buttonPressed,
+        ]}
+      >
+        <Text style={styles.settingButtonText}>設定</Text>
+      </Pressable>
     </View>
   );
 }
@@ -110,52 +138,87 @@ const styles = StyleSheet.create({
     padding: 24,
     backgroundColor: "#F4F7FB",
   },
-  eyebrow: {
-    marginBottom: 8,
-    color: "#60708A",
-    fontSize: 14,
-    fontWeight: "600",
+  // eyebrow: {
+  //   marginBottom: 8,
+  //   color: "#60708A",
+  //   fontSize: 14,
+  //   fontWeight: "600",
+  // },
+  // title: {
+  //   color: "#172033",
+  //   fontSize: 30,
+  //   fontWeight: "700",
+  // },
+  // gold: {
+  //   marginVertical: 28,
+  //   color: "#C47A00",
+  //   fontSize: 44,
+  //   fontWeight: "800",
+  // },
+  // button: {
+  //   minWidth: 180,
+  //   alignItems: "center",
+  //   borderRadius: 14,
+  //   backgroundColor: "#2457D6",
+  //   paddingHorizontal: 28,
+  //   paddingVertical: 16,
+  // },
+  buttonPressed: {
+    opacity: 0.8,
   },
-  title: {
-    color: "#172033",
-    fontSize: 30,
-    fontWeight: "700",
+  // buttonDisabled: {
+  //   opacity: 0.5,
+  // },
+  // buttonText: {
+  //   color: "#FFFFFF",
+  //   fontSize: 18,
+  //   fontWeight: "700",
+  // },
+  // hint: {
+  //   maxWidth: 320,
+  //   marginTop: 24,
+  //   color: "#60708A",
+  //   lineHeight: 20,
+  //   textAlign: "center",
+  // },
+  // error: {
+  //   marginTop: 16,
+  //   color: "#B42318",
+  //   textAlign: "center",
+  // },
+  heading1: {
+    fontSize: 24,
+    fontWeight: 700,
+    marginBottom: 24
   },
-  gold: {
-    marginVertical: 28,
-    color: "#C47A00",
-    fontSize: 44,
-    fontWeight: "800",
-  },
-  button: {
+
+  startButton: {
     minWidth: 180,
     alignItems: "center",
     borderRadius: 14,
     backgroundColor: "#2457D6",
     paddingHorizontal: 28,
     paddingVertical: 16,
+    marginBottom: 24,
   },
-  buttonPressed: {
-    opacity: 0.8,
+
+  startButtonText: {
+    fontSize: 16,
+    color: "#fff",
   },
-  buttonDisabled: {
-    opacity: 0.5,
+
+  settingButton: {
+    minWidth: 180,
+    alignItems: "center",
+    borderRadius: 14,
+    backgroundColor: "#e8e8e8",
+    paddingHorizontal: 28,
+    paddingVertical: 16,
   },
-  buttonText: {
-    color: "#FFFFFF",
-    fontSize: 18,
-    fontWeight: "700",
-  },
-  hint: {
-    maxWidth: 320,
-    marginTop: 24,
-    color: "#60708A",
-    lineHeight: 20,
-    textAlign: "center",
-  },
-  error: {
-    marginTop: 16,
-    color: "#B42318",
-    textAlign: "center",
-  },
+
+  settingButtonText: {
+    fontSize: 16,
+    color: "#000",
+  }
+
 });
