@@ -28,19 +28,21 @@ export async function migrateDbIfNeeded(db: SQLiteDatabase) {
           id INTEGER PRIMARY KEY NOT NULL,
           level INTEGER NOT NULL DEFAULT 1,
           exp INTEGER NOT NULL DEFAULT 0,
-          hp INTEGER NOT NULL DEFAULT 100,
-          gold INTEGER NOT NULL DEFAULT 0
+          base_attack INTEGER NOT NULL DEFAULT 100,
+          base_life INTEGER NOT NULL DEFAULT 3 CHECK (base_life BETWEEN 1 AND 10),
+          gold INTEGER NOT NULL DEFAULT 500
         );
       `);
 
       await transaction.runAsync(
-        `INSERT OR IGNORE INTO player (id, level, exp, hp, gold)
-         VALUES (?, ?, ?, ?, ?)`,
-        1,
-        1,
-        0,
-        100,
-        0,
+        `INSERT OR IGNORE INTO player (id, level, exp, base_attack, base_life, gold)
+          VALUES (?, ?, ?, ?, ?, ?)`,
+          1,
+          1,
+          0,
+          100,
+          3,
+          500,
       );
     });
 
