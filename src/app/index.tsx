@@ -1,6 +1,7 @@
 import type { SQLiteDatabase } from "expo-sqlite";
+import { useRouter } from "expo-router";
 import { useSQLiteContext } from "expo-sqlite";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 type PlayerGoldRow = {
@@ -9,8 +10,7 @@ type PlayerGoldRow = {
 
 async function getPlayerGold(db: SQLiteDatabase) {
   const player = await db.getFirstAsync<PlayerGoldRow>(
-    "SELECT gold FROM player WHERE id = ?",
-    1,
+    "SELECT gold FROM player WHERE id = ?", 1,
   );
 
   if (!player) {
@@ -25,51 +25,52 @@ function getErrorMessage(error: unknown) {
 }
 
 export default function Index() {
+  const router = useRouter();
   const db = useSQLiteContext();
   const [gold, setGold] = useState<number | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  useEffect(() => {
-    let isMounted = true;
+  // useEffect(() => {
+  //   let isMounted = true;
 
-    async function loadGold() {
-      try {
-        const savedGold = await getPlayerGold(db);
-        if (isMounted) {
-          setGold(savedGold);
-        }
-      } catch (error) {
-        if (isMounted) {
-          setErrorMessage(getErrorMessage(error));
-        }
-      }
-    }
+  //   async function loadGold() {
+  //     try {
+  //       const savedGold = await getPlayerGold(db);
+  //       if (isMounted) {
+  //         setGold(savedGold);
+  //       }
+  //     } catch (error) {
+  //       if (isMounted) {
+  //         setErrorMessage(getErrorMessage(error));
+  //       }
+  //     }
+  //   }
 
-    void loadGold();
+  //   void loadGold();
 
-    return () => {
-      isMounted = false;
-    };
-  }, [db]);
+  //   return () => {
+  //     isMounted = false;
+  //   };
+  // }, [db]);
 
-  async function handleAddGold() {
-    setIsSaving(true);
-    setErrorMessage(null);
+  // async function handleAddGold() {
+  //   setIsSaving(true);
+  //   setErrorMessage(null);
 
-    try {
-      await db.runAsync(
-        "UPDATE player SET gold = gold + ? WHERE id = ?",
-        100,
-        1,
-      );
-      setGold(await getPlayerGold(db));
-    } catch (error) {
-      setErrorMessage(getErrorMessage(error));
-    } finally {
-      setIsSaving(false);
-    }
-  }
+  //   try {
+  //     await db.runAsync(
+  //       "UPDATE player SET gold = gold + ? WHERE id = ?",
+  //       100,
+  //       1,
+  //     );
+  //     setGold(await getPlayerGold(db));
+  //   } catch (error) {
+  //     setErrorMessage(getErrorMessage(error));
+  //   } finally {
+  //     setIsSaving(false);
+  //   }
+  // }
 
   return (
     // <View style={styles.container}>
@@ -106,7 +107,7 @@ export default function Index() {
       <Pressable
         accessibilityRole="button"
         accessibilityLabel="マネーハンターをはじめる"
-        // onPress={moveMap}
+        onPress={() => router.push("/home")}
         style={({ pressed }) => [
           styles.startButton,
           pressed && styles.buttonPressed,
@@ -115,6 +116,7 @@ export default function Index() {
         <Text style={styles.startButtonText}>はじめる</Text>
       </Pressable>
 
+      {/* todo:: 設定の処理作成 */}
       <Pressable
         accessibilityRole="button"
         accessibilityLabel="設定"
