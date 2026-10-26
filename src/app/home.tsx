@@ -3,6 +3,7 @@ import { useSQLiteContext } from "expo-sqlite";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import { GameFooter } from "@/components/GameFooter";
 import { GameHeader } from "@/components/GameHeader";
 
 const EXP_REQUIRED_FOR_NEXT_LEVEL = 100;
@@ -73,6 +74,8 @@ export default function Index() {
       {errorMessage ? (
         <Text style={styles.errorMessage}>{errorMessage}</Text>
       ) : null}
+
+      <GameFooter />
     </View>
   );
 }
