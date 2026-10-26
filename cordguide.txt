@@ -2,3 +2,5 @@
 #f1ca89
 #f2dac3
 #c8c2bc
+
+stylesはabc順に並べること
