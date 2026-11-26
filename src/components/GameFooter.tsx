@@ -1,7 +1,10 @@
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
 import { Pressable, StyleSheet, View } from "react-native";
 
 export function GameFooter() {
+  const router = useRouter();
+
   return (
     <View style={styles.footer}>
       <Pressable
@@ -22,6 +25,7 @@ export function GameFooter() {
       <Pressable
         accessibilityRole="button"
         accessibilityLabel="冒険に出る"
+        onPress={() => router.navigate("/stages")}
         style={({ pressed }) => [
           styles.actionButton,
           pressed && styles.buttonPressed,
