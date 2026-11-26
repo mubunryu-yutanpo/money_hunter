@@ -134,11 +134,11 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
+    backgroundColor: "#F4F7FB",
+    flex: 1,
     justifyContent: "center",
     padding: 24,
-    backgroundColor: "#F4F7FB",
   },
   // eyebrow: {
   //   marginBottom: 8,
@@ -195,32 +195,32 @@ const styles = StyleSheet.create({
   },
 
   startButton: {
-    minWidth: 180,
     alignItems: "center",
-    borderRadius: 14,
     backgroundColor: "#2457D6",
+    borderRadius: 14,
+    marginBottom: 24,
+    minWidth: 180,
     paddingHorizontal: 28,
     paddingVertical: 16,
-    marginBottom: 24,
   },
 
   startButtonText: {
-    fontSize: 16,
     color: "#fff",
+    fontSize: 16,
   },
 
   settingButton: {
-    minWidth: 180,
     alignItems: "center",
-    borderRadius: 14,
     backgroundColor: "#e8e8e8",
+    borderRadius: 14,
+    minWidth: 180,
     paddingHorizontal: 28,
     paddingVertical: 16,
   },
 
   settingButtonText: {
-    fontSize: 16,
     color: "#000",
+    fontSize: 16,
   }
 
 });

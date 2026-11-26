@@ -59,10 +59,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: "auto",
-    paddingTop: 12,
     paddingBottom: 12,
     paddingLeft: 24,
     paddingRight: 24,
+    paddingTop: 12,
   },
 
   actionButton: {

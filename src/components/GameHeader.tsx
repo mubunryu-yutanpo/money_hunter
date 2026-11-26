@@ -78,31 +78,31 @@ export function GameHeader({
 const styles = StyleSheet.create({
   header: {
     alignItems: "center",
+    backgroundColor: "#cc9b6d",
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 12,
-    backgroundColor: "#cc9b6d",
   },
 
   user: {
-    flexDirection: "row",
     alignItems: "center",
+    flexDirection: "row",
   },
 
   thumbnail: {
-    width: 56,
-    height: 56,
     backgroundColor: "#000",
-    borderWidth: 2,
     borderColor: "#000",
     borderRadius: 100,
+    borderWidth: 2,
+    height: 56,
     overflow: "hidden",
+    width: 56,
     zIndex: 1,
   },
 
   thumbnailImage: {
-    width: "100%",
     height: "100%",
+    width: "100%",
   },
 
   userDetail: {
@@ -112,27 +112,27 @@ const styles = StyleSheet.create({
   },
 
   userDetailBody: {
-    minWidth: 132,
+    backgroundColor: "#000",
     justifyContent: "center",
+    minWidth: 132,
     paddingLeft: 22,
     paddingRight: 8,
-    backgroundColor: "#000",
   },
 
   userDetailArrow: {
-    width: 0,
-    height: 0,
-    borderTopWidth: 23,
+    borderBottomColor: "transparent",
     borderBottomWidth: 23,
+    borderLeftColor: "#000",
     borderLeftWidth: 18,
     borderTopColor: "transparent",
-    borderBottomColor: "transparent",
-    borderLeftColor: "#000",
+    borderTopWidth: 23,
+    height: 0,
+    width: 0,
   },
 
   levelRow: {
-    flexDirection: "row",
     alignItems: "center",
+    flexDirection: "row",
     marginBottom: 5,
   },
 
@@ -144,9 +144,9 @@ const styles = StyleSheet.create({
   },
 
   expArea: {
+    alignItems: "center",
     flex: 1,
     flexDirection: "row",
-    alignItems: "center",
   },
 
   expLabel: {
@@ -157,17 +157,17 @@ const styles = StyleSheet.create({
   },
 
   expBarTrack: {
-    flex: 1,
-    height: 7,
     backgroundColor: "#4a4a4a",
     borderRadius: 4,
+    flex: 1,
+    height: 7,
     overflow: "hidden",
   },
 
   expBarFill: {
-    height: "100%",
     backgroundColor: "#56d364",
     borderRadius: 4,
+    height: "100%",
   },
 
   userName: {
@@ -177,11 +177,11 @@ const styles = StyleSheet.create({
   },
 
   goldContainer: {
-    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
     backgroundColor: "#f2dac3",
     borderRadius: 100,
+    flexDirection: "row",
+    justifyContent: "space-between",
     minWidth: 120,
     paddingLeft: 8,
     paddingRight: 12,
@@ -192,8 +192,8 @@ const styles = StyleSheet.create({
   },
 
   goldImage: {
-    width: 40,
     height: 40,
+    width: 40,
   },
 
   goldOnHand: {
